@@ -50,7 +50,7 @@ function generateHost() {
     rating = Math.floor(Math.random() * 12) + 1;
   }
 
-  console.log(rating);
+  console.log(typeof rating);
 
   /*End Block*/
 

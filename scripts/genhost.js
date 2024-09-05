@@ -46,7 +46,7 @@ function generateHost() {
   var rating = document.getElementById("hostRating").value;
   /*Host Rating Block*/
   //Generate the random host rating [1 - 12] if rating not given
-  if (rating == null) {
+  if (!rating) {
     rating = Math.floor(Math.random() * 12) + 1;
   }
 

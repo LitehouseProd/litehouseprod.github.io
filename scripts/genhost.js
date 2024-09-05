@@ -20,21 +20,24 @@
 
 function generateRatings(total) {
   // We want four numbers whose sum equals the total
-  var ratings = [0, 0, 0, 0];
+  var ratings = [1, 1, 1, 1];
 
-  // Generate 3 random split points between 0 and total
+  // Adjust the total to account for the minimum rating of 1 for each
+  var remainingTotal = total - 4; // since each rating is at least 1, we subtract 4 from total
+
+  // Generate 3 random split points between 0 and remainingTotal
   var splitPoints = [];
   for (var i = 0; i < 3; i++) {
-    splitPoints.push(Math.floor(Math.random() * total));
+    splitPoints.push(Math.floor(Math.random() * remainingTotal));
   }
   // Sort the split points
   splitPoints.sort((a, b) => a - b);
 
-  // Calculate the differences between the split points to get the ratings
-  ratings[0] = splitPoints[0];
-  ratings[1] = splitPoints[1] - splitPoints[0];
-  ratings[2] = splitPoints[2] - splitPoints[1];
-  ratings[3] = total - splitPoints[2];
+  // Calculate the differences between the split points to get the remaining distribution
+  ratings[0] += splitPoints[0];
+  ratings[1] += splitPoints[1] - splitPoints[0];
+  ratings[2] += splitPoints[2] - splitPoints[1];
+  ratings[3] += remainingTotal - splitPoints[2];
 
   return ratings;
 }

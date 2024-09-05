@@ -440,6 +440,7 @@ function generateHost() {
 
   /*Host Tiers*/
   /*Each tier will have its own IC and Spiders*/
+  console.log(rating);
   switch (rating) {
     case 1: //Rating 1 - 3 hosts
     case 2:

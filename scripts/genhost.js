@@ -40,20 +40,18 @@ function generateRatings(total) {
 }
 
 function generateHost() {
-  var hostRating = document.getElementById("hostRating").value;
+  var rating = document.getElementById("hostRating").value;
   /*Host Rating Block*/
   //Generate the random host rating [1 - 12] if rating not given
-  if (!hostRating) {
-    hostRating = Math.floor(Math.random() * 12) + 1;
+  if (!rating) {
+    rating = Math.floor(Math.random() * 12) + 1;
   }
 
   /*End Block*/
 
   /*Host Attribute Block*/
   // Calculate the total sum that the four ratings must equal
-  var total = hostRating * 4 + 6;
-
-  // Generate random values for the ratings such that their sum equals total
+  var total = rating * 4 + 6;
 
   var assignedRating = generateRatings(total);
 
